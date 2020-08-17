@@ -1,0 +1,32 @@
+CREATE DATABASE employees;
+USE employees;
+
+CREATE TABLE people (
+   id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+   email VARCHAR(40) NOT NULL,
+   first_name VARCHAR(40) NOT NULL,
+   last_name VARCHAR(40) NOT NULL
+);
+
+/* Under Escape (backtick)*/
+INSERT INTO `people` (`email`, `first_name` ,`last_name`)
+VALUES ("example@abv.bg", 'George', 'Smith'),
+('peter@gmail.com', 'Peter', 'West');
+
+SELECT * FROM `people`;
+SELECT `first_name`, `last_name` FROM `people`;
+SELECT * FROM `people` LIMIT 2;
+
+SELECT * FROM `people` 
+WHERE `first_name` = 'Peter' AND `last_name` = 'West';
+
+UPDATE `people`
+SET `first_name` = 'Pesho'
+WHERE `last_name` = 'West';
+
+UPDATE people
+SET last_name = 'Adams'
+WHERE id = 2;
+
+TRUNCATE TABLE `people`;
+DROP TABLE `people`;
